@@ -7,7 +7,6 @@
 @import url('./reset.css');
 @import url('./vite-promo.css');
 @import url('./header.css');
-
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -23,12 +22,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.galleryItem {
+  height: 200px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #173f29;
+}
+
+p {
+  display: flex;
+  flex-direction: column;
+}
+
 img {
-  /* width: 360px;
-  height: 300px; */
   display: flex;
   flex-wrap: wrap;
   margin-top: 24px;
+  width: 360px;
+  height: 200px;
 }
 
 .btn-section {
@@ -43,8 +56,8 @@ input {
 }
 
 button {
-  background-color: rgb(36, 98, 67);
-  color: rgb(247, 252, 247);
+  background-color: #146c39;
+  color: #fff;
   border-radius: 8px;
   width: 91px;
   height: 40px;
@@ -65,92 +78,73 @@ button {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
-@import '~css-loader/dist/style.css';
-
-.loader {
-  display: none;
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
 }
 
-.loader-visible {
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.parameter-name {
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+.likes-value {
   display: block;
-}
-
-.loader {
-  transform: rotateZ(45deg);
-  perspective: 1000px;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  color: #10f491;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.loader:before,
-.loader:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  height: inherit;
+.loader {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  transform: rotateX(70deg);
-  animation: 1s spin linear infinite;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  color: #105c2f;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
 }
 
-.loader:after {
-  color: #1c7636;
-  transform: rotateY(70deg);
-  animation-delay: 0.4s;
-}
-
-@keyframes rotate {
+@keyframes animloader {
   0% {
-    transform: translate(-50%, -50%) rotateZ(0deg);
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
-  100% {
-    transform: translate(-50%, -50%) rotateZ(360deg);
-  }
-}
 
-@keyframes rotateccw {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
-}
-
-@keyframes spin {
-  0%,
-  100% {
-    box-shadow: 0.2em 0px 0 0px currentcolor;
-  }
-  12% {
-    box-shadow: 0.2em 0.2em 0 0 currentcolor;
-  }
   25% {
-    box-shadow: 0 0.2em 0 0px currentcolor;
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
   }
-  37% {
-    box-shadow: -0.2em 0.2em 0 0 currentcolor;
-  }
+
   50% {
-    box-shadow: -0.2em 0 0 0 currentcolor;
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
   }
-  62% {
-    box-shadow: -0.2em -0.2em 0 0 currentcolor;
-  }
+
   75% {
-    box-shadow: 0px -0.2em 0 0 currentcolor;
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
-  87% {
-    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
 }
